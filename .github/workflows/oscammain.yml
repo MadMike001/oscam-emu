@@ -24,10 +24,10 @@ jobs:
                                   libssl-dev cmake pkg-config
 
       - name: 🛠️ OSCam bauen mit ICAM, EMU, Hexdump
+        working-directory: ./oscam
         run: |
           export PATH="${GITHUB_WORKSPACE}/toolchain/bin:$PATH"
           export CC=arm-oe-linux-gnueabi-gcc
-          cd oscam  # In das Unterverzeichnis mit dem Makefile wechseln
           make distclean || true
           make -j2 \
             USE_LIBUSB=1 \
